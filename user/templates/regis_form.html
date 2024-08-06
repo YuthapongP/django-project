@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+</head>
+<body>
+    <form class="form_user" action="user/form" method="POST" >
+        {% csrf_token %}
+        <div style="margin-top:20px;margin-bottom: 20px;">
+            <!-- {{userform.name.label_tag}} -->
+            {{userform.Name.label_tag}}
+
+            {{userform.Name}}
+        </div>
+        <div style="margin-top:20px;margin-bottom: 20px;">
+            <!-- {{userform.name.label_tag}} -->
+            {{userform.Email.label_tag}}
+
+            {{userform.Email}}
+        </div>
+        <div style="margin-top:20px;margin-bottom: 20px;">
+            <!-- {{userform.name.label_tag}} -->
+            {{userform.Age.label_tag}}
+
+            {{userform.Age}}
+        </div>
+        <p>{{userform.Movie.label_tag}} </p>
+        <div class="movie_list" style="overflow-y:scroll; width: 500px; height: 250px;margin-top:20px;margin-bottom: 20px;">
+            {{userform.Movie}}
+        </div>
+        <!-- <label for="name">Name</label>
+        <input type="text" id="name" name ="name" value="" placeholder="name">
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" value="" placeholder="email">
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" value="" placeholder="age"> -->
+
+
+
+        <button>Submit</button>
+    </form>
+    
+</body>
+</html>

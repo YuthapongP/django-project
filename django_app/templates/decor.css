@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+a {
+    transition: background-color 1s;
+}
+
+a:hover {
+    background-color: grey;    
+}
+
+
+p {
+    background-color: grey;
+    transition: background-color 1s;
+}
+
