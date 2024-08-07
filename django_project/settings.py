@@ -33,6 +33,9 @@ production_host = os.getenv('PRODUCTION_HOST')
 ALLOWED_HOSTS = [production_host] if production_host is not None else []
 
 
+
+
+
 # Application definition
 
 INSTALLED_APPS = [
