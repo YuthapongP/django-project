@@ -1,0 +1,87 @@
+<!-- templates/user_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      form {
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .form-group {
+        margin-bottom: 15px;
+      }
+      .form-group label {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .form-group input,
+      .form-group select {
+        width: 100%;
+        padding: 8px;
+        box-sizing: border-box;
+      }
+      .form-group .errors {
+        color: red;
+        font-size: 0.875em;
+      }
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Register User</h1>
+
+    {% if form.errors or form.non_field_errors %}
+    <div class="errors">
+      <ul>
+        {% for field in form %} {% for error in field.errors %}
+        <li>{{ error }}</li>
+        {% endfor %} {% endfor %} {% for error in form.non_field_errors %}
+        <li>{{ error }}</li>
+        {% endfor   %}
+      </ul>
+    </div>
+    {% endif   %}
+
+    <form method="post">
+      {% csrf_token %}
+      <table>
+        {% for field in form %}
+        <tr>
+          <td>{{ field.label_tag }}</td>
+          <td>{{ field }}</td>
+          <td>
+            {% if field.errors %}
+            <ul class="errors">
+              {% for error in field.errors %}
+              <li>{{ error }}</li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+          </td>
+        </tr>
+        {% endfor %}
+      </table>
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

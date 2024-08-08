@@ -14,7 +14,7 @@ def form(request):
     if request.method == 'POST':
         form = UserModelForm(request.POST)
         print(form)
-        if form.is_valid:
+        if form.is_valid():
             form.save()
             
             # user = User()

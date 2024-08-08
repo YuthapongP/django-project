@@ -33,9 +33,6 @@ production_host = os.getenv('PRODUCTION_HOST')
 ALLOWED_HOSTS = [production_host] if production_host is not None else []
 
 
-
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -46,7 +43,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django_app.apps.DjangoAppConfig",
-    "user.apps.UserConfig"
+    "user.apps.UserConfig",
+    
 ]
 
 MIDDLEWARE = [
@@ -83,30 +81,30 @@ WSGI_APPLICATION = "django_project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
-
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": os.getenv('DB_NAME'),
-        "USER": os.getenv('DB_USER'),
-        "PASSWORD": os.getenv('DB_PASSWORD'),
-        "HOST": os.getenv('DB_HOST'),
-        "PORT": os.getenv('DB_PORT')
-
-        # "ENGINE": "django.db.backends.mysql",
-        # "NAME": "nuno",
-        # "USER": "root",
-        # "PASSWORD": "lumoss",
-        # "HOST": "127.0.0.1",
-        # "PORT": "3306"
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
+
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME": os.getenv('DB_NAME'),
+#         "USER": os.getenv('DB_USER'),
+#         "PASSWORD": os.getenv('DB_PASSWORD'),
+#         "HOST": os.getenv('DB_HOST'),
+#         "PORT": os.getenv('DB_PORT')
+
+#         # "ENGINE": "django.db.backends.mysql",
+#         # "NAME": "nuno",
+#         # "USER": "root",
+#         # "PASSWORD": "lumoss",
+#         # "HOST": "127.0.0.1",
+#         # "PORT": "3306"
+#     }
+# }
 
 
 # Password validation
